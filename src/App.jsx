@@ -12,7 +12,7 @@ function App() {
   //   { input: 'Learn how to web design!', complete: false },
   //   { input: 'Say hi to gran gran!', complete: true },
   // ]
-
+  const [selected_tab, setSelectedTab] = useState('All')
   const [todos, setTodos] = useState([{ input: 'Hello! Add your first todo!', complete: true }]);
 
   function handleAddTodo(new_todo){
@@ -32,7 +32,7 @@ function App() {
   return (
    <>
       <Header todos={todos}/> {/* Sending the todos to bottom-level(Header component) using props */}
-      <Tabs todos={todos}/>
+      <Tabs selected_tab={selected_tab} setSelectedTab={setSelectedTab} todos={todos}/>
       <TodoList todos={todos}/>
       <TodoInput handleAddTodo={handleAddTodo}/>
    </>

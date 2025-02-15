@@ -19,6 +19,7 @@
   }
   
   .tab-container {
+    overflow-y: none;
     overflow-x: auto;
   }
   
