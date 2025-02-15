@@ -13,16 +13,20 @@ function App() {
   //   { input: 'Say hi to gran gran!', complete: true },
   // ]
   const [selected_tab, setSelectedTab] = useState('All');
-  const [todos, setTodos] = useState([{ input: 'Hello! Add your first todo!', complete: true }]);
+  const [todos, setTodos] = useState([{ input: 'Hello! Add your first todo!', complete: true }, { input: 'Task #1', complete: false }, { input: 'Task #2', complete: false }, { input: 'Task #3', complete: false }]);
 
   function handleAddTodo(new_todo){
     const new_todo_list = [...todos, {input: new_todo, complete: false}]; /* The spread operator here makes it so that the new list is added to the end of existing list*/
     setTodos(new_todo_list);
   }
 
-
-  function handleEditTodo(){
-
+  function handleUpdateTodo(index){
+    // update the todo
+    let new_todo_list = [...todos];
+    let completed_todo = todos[index]
+    completed_todo['complete'] = true; // Setting the todo to completed
+    new_todo_list[index] = completed_todo;
+    setTodos(new_todo_list);
   }
 
   function handleDeleteTodo(index){
@@ -36,7 +40,7 @@ function App() {
    <>
       <Header todos={todos}/> {/* Sending the todos to bottom-level(Header component) using props */}
       <Tabs selected_tab={selected_tab} setSelectedTab={setSelectedTab} todos={todos}/>
-      <TodoList handleDeleteTodo={handleDeleteTodo} selected_tab={selected_tab} todos={todos}/>
+      <TodoList handleUpdateTodo={handleUpdateTodo} handleDeleteTodo={handleDeleteTodo} selected_tab={selected_tab} todos={todos}/>
       <TodoInput handleAddTodo={handleAddTodo}/>
    </>
   )
