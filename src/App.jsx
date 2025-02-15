@@ -33,7 +33,7 @@ function App() {
    <>
       <Header todos={todos}/> {/* Sending the todos to bottom-level(Header component) using props */}
       <Tabs selected_tab={selected_tab} setSelectedTab={setSelectedTab} todos={todos}/>
-      <TodoList todos={todos}/>
+      <TodoList selected_tab={selected_tab} todos={todos}/>
       <TodoInput handleAddTodo={handleAddTodo}/>
    </>
   )

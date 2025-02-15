@@ -12,7 +12,7 @@ export function TodoInput(props){
 
     return(
         <div className="input-container">
-            <input placeholder="Add task" onChange={handleInput}/>
+            <input placeholder="Add task" value={input} onChange={handleInput}/>
             <button onClick={()=>{
                 if(!input){return} 
                 handleAddTodo(input)
