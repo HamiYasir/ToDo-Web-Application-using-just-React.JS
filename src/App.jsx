@@ -3,21 +3,17 @@ import { Tabs } from './components/Tabs';
 import { TodoList } from './components/TodoList';
 import {TodoInput } from './components/TodoInput';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
-  // const todos = [
-  //   { input: 'Hello! Add your first todo!', complete: true },
-  //   { input: 'Get the groceries!', complete: false },
-  //   { input: 'Learn how to web design!', complete: false },
-  //   { input: 'Say hi to gran gran!', complete: true },
-  // ]
   const [selected_tab, setSelectedTab] = useState('All');
-  const [todos, setTodos] = useState([{ input: 'Hello! Add your first todo!', complete: true }, { input: 'Task #1', complete: false }, { input: 'Task #2', complete: false }, { input: 'Task #3', complete: false }]);
+  const [todos, setTodos] = useState([]);
+  // const [todos, setTodos] = useState([{ input: 'Hello! Add your first todo!', complete: true }, { input: 'Task #1', complete: false }, { input: 'Task #2', complete: false }, { input: 'Task #3', complete: false }]);
 
   function handleAddTodo(new_todo){
     const new_todo_list = [...todos, {input: new_todo, complete: false}]; /* The spread operator here makes it so that the new list is added to the end of existing list*/
     setTodos(new_todo_list);
+    handleSavingToLocalStorage(new_todo_list);
   }
 
   function handleUpdateTodo(index){
@@ -27,6 +23,7 @@ function App() {
     completed_todo['complete'] = true; // Setting the todo to completed
     new_todo_list[index] = completed_todo;
     setTodos(new_todo_list);
+    handleSavingToLocalStorage(new_todo_list);
   }
 
   function handleDeleteTodo(index){
@@ -34,7 +31,18 @@ function App() {
       return val_index !== index;
     })
     setTodos(new_todo_list);
+    handleSavingToLocalStorage(new_todo_list);
   }
+
+  function handleSavingToLocalStorage(current_todos){
+    localStorage.setItem('todo-app', JSON.stringify({ todos: current_todos }))
+  }
+
+  useEffect(()=>{
+    if(!localStorage || !localStorage.getItem('todo-app')){return} /* todo-app is a unique key and should not be used for any other projects as it will result in overwriting localstorage */
+    let db = JSON.parse(localStorage.getItem('todo-app'))
+    setTodos(db.todos);
+  }, []);
 
   return (
    <>
