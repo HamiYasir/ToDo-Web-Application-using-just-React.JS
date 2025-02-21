@@ -4,21 +4,21 @@ This is a web app for implementing a Todo Web Application that will be able to a
 
 ## THINGS I WILL BE LEARNING FROM THIS PROJECT:
 
--React.Js Basics(Components, Hooks, Props)
--Work flow with React.Js
--Working with localstorage
--Styling
--Layouting
--Streamling code
+- React.Js Basics(Components, Hooks, Props)
+- Work flow with React.Js
+- Working with localstorage
+- Styling
+- Layouting
+- Streamling code
 
 ## FRAMEWORKS AND OTHER RESOURCES USED IN THIS PROJECT:
 
-FontAwesome CDN - https://cdnjs.com/libraries/font-awesome  
-FontAwesome Icons - https://www.fontawesome.com  
-FantaCSS - https://www.fantacss.smoljames.com  
-NodeJS - https://nodejs.org/en/download  
-Vite - https://v3.vitejs.dev/guide/  
-Netlify - https://www.netlify.com/  
+- FontAwesome CDN - https://cdnjs.com/libraries/font-awesome  
+- FontAwesome Icons - https://www.fontawesome.com  
+- FantaCSS - https://www.fantacss.smoljames.com  
+- NodeJS - https://nodejs.org/en/download  
+- Vite - https://v3.vitejs.dev/guide/  
+- Netlify - https://www.netlify.com/  
 
 ### DEPLOYMENT
 
