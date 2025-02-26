@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 // This will contain the textbox to collect the todo from user and a button to add the todo
 export function TodoInput(props){
-    const { handleAddTodo } = props;
+    const { editMode ,handleAddTodo } = props;
 
     const [input, setInput] = useState('');
     
