@@ -661,7 +661,12 @@ details[open] summary {
     opacity: 0.6;
 }
 
-
+.is-editing{
+    border: 2px solid rgb(224, 218, 218);
+    padding: 1.5rem;
+    font-size: large;
+}
+  
 @media (min-width: 640px) {
     body {
         font-size: 1rem;

@@ -126,7 +126,7 @@
     flex: 1;
     max-width: unset !important;
   }
-  
+
   @keyframes widen {
     from {
       width: 20%;

@@ -8,13 +8,16 @@ export function TodoCard(props){
 
     return(
         <>
-            <div className="card todo-item">
+            <div className={"card todo-item "+(todo.edit ? "is-editing" : "")}>
                 <p>{todo.input}</p>
                 <div className="todo-buttons">
                     <button onClick={()=>{handleMarkTodo(todo_index)}} disabled={todo.edit || todo.complete}>
                         <h6>Done</h6>
                     </button>
-                    <button onClick={()=>{handleEditTodo(todo_index)}} disabled={todo.edit || todo.complete}>
+                    <button onClick={()=>{
+                        setEditInput(todo.input)
+                        handleEditTodo(todo_index)
+                    }} disabled={todo.edit || todo.complete}>
                         <h6>Edit</h6>
                     </button>
                     <button onClick={()=>{handleDeleteTodo(todo_index)}}>
